@@ -13,11 +13,11 @@ function App() {
     const firebaseToken = localStorage.getItem('firebaseToken');
     setToken(firebaseToken);
   }, []);
-  
+  //token ?  : <Navigate to="/signup" />
   return (
     <Router>
       <Routes>
-        <Route path='/' element={token ? <HomePage /> : <Navigate to="/signup" />} />
+        <Route path='/' element={<HomePage /> } />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/signin' element={<SigninPage />} />
         <Route path="*" element={<ErrorPage />} />
