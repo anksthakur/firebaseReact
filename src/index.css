@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .wrapper{
+  margin : 0 auto;
+  padding: 0 15px;
+  max-width : 1430px;
+} */
