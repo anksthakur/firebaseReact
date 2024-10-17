@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import GoogleButton from "./GoogleButton";
 import FacebookButton from "./FacebookButton";
 import { useState } from "react";
+import GithubButton from "./GithubButton";
 
 export default function Signup() {
     const [email, setEmail] = useState<any>('');
@@ -65,6 +66,7 @@ export default function Signup() {
                     <div className="flex justify-center gap-3 mb-4">
                         <GoogleButton />
                         <FacebookButton />
+                        <GithubButton/>
                     </div>
                 </form>
             </div>

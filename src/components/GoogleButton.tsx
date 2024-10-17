@@ -5,15 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function GoogleButton() {
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const handleGoogleSignup = async () => {
         try {
-            const res = await signInWithPopup(auth, provider);
+            const res = await signInWithPopup(auth, googleProvider);
             const user = res.user;
-            console.log("user Info :", user);
             const userToken = await user.getIdToken();
-           console.log(userToken, ": user token");
             localStorage.setItem("firebaseToken", userToken);
             navigate('/');
         } catch (error) {
