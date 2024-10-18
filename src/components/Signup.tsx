@@ -15,7 +15,7 @@ export default function Signup() {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (email === adminEmail && password === adminPassword) {
-            router('/');
+            router('/news');
         } else {
             alert("check your credential");
         }
