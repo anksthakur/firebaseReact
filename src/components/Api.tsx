@@ -26,12 +26,12 @@ const Api: React.FC<ApiProps> = ({ category }) => {
     }, [category]);
 
     const LoadingComponent = () => (
-        <div className="animate-pulse bg-gray-400 w-full h-64"></div>
+        <div className="animate-pulse bg-orange-800 w-full h-64"></div>
     );
 
     return (
         <div className="mx-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
                 {loading ? (
                     Array.from({ length:9}).map((_, index) => (
                         <LoadingComponent key={index} />

@@ -13,7 +13,7 @@ export default function GoogleButton() {
             const user = res.user;
             const userToken = await user.getIdToken();
             localStorage.setItem("firebaseToken", userToken);
-            navigate('/');
+            navigate('/news');
         } catch (error) {
             console.log(error)
         }

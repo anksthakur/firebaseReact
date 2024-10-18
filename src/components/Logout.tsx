@@ -7,9 +7,9 @@ export default function Logout(){
     function logOut (){
         signOut(auth);  
         localStorage.clear();
-        router('/signup');
+        router('/');
     }
     return <div>
-        <button className="border-2 border-black  bg-red-300 hover:bg-green-400 rounded-md px-2 py-2" onClick={logOut}>Logout</button>
+        <button className="border-2 border-black  bg-orange-800 hover:bg-orange-200 rounded-md px-2 py-2" onClick={logOut}>Logout</button>
         </div>
 }
