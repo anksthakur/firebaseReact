@@ -32,7 +32,7 @@ export default function Signin() {
                     <div className="text-center">
                         <p className="text-sm">
                             Already have an account?{' '}
-                            <NavLink to="/signup" className="text-blue-500 hover:underline">
+                            <NavLink to="/" className="text-blue-500 hover:underline">
                                 Sign up
                             </NavLink>
                         </p>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface ApiProps {
     category: string;
@@ -23,10 +24,11 @@ const Api: React.FC<ApiProps> = ({ category }) => {
 
     useEffect(() => {
         getApiData();
+        // eslint-disable-next-line
     }, [category]);
 
     const LoadingComponent = () => (
-        <div className="animate-pulse bg-orange-800 w-full h-64"></div>
+        <div className="animate-pulse bg-orange-200 w-full h-64"></div>
     );
 
     return (
@@ -47,7 +49,8 @@ const Api: React.FC<ApiProps> = ({ category }) => {
                                 )}
                             </div>
                             <h1 className="font-bold mb-2">Headlines: {item.title || "Unknown"}</h1>
-                            <h2 className="text-gray-600">Author: {item.author || "Unknown"}</h2>
+                            <h2 className="text-black">Author: {item.author || "Unknown"}</h2>
+                            <Link className="text-black font-bold" to={item.url }>Read Full News .....</Link>
                         </div>
                     ))
                 )}

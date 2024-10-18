@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import SignupPage from './page/signup';
 import SigninPage from './page/signin';
 import ErrorPage from './ErrorPage';
@@ -14,31 +14,37 @@ import Navbar from './components/Navbar';
 
 function App() {
   const [token, setToken] = useState<string | null>(null);
-
+  
   useEffect(() => {
     const firebaseToken = localStorage.getItem('firebaseToken');
     setToken(firebaseToken);
   }, []);
 
+  const location = useLocation();
+
   return (
     <>
-      <Router>
-        <Navbar/>
-        <Routes>
-          < Route path='*' element={< ErrorPage />} />
-        < Route path='/' element={<SignupPage />} />
-          < Route path='/signin' element={<SigninPage />} />
-          <Route path='/news' element={<News />} />
-          < Route path='/entertainment' element={< Entertainment />} />
-          < Route path='/general' element={< General />} />
-          < Route path='/health' element={< Health />} />
-          < Route path='/science' element={< Science />} />
-          < Route path='/sports' element={< Sports />} />
-          < Route path='/technology' element={< Technology />} />
-        </Routes>
-      </Router>
+      {location.pathname !== '/' && location.pathname !== '/signin' && <Navbar />}
+      <Routes>
+        <Route path='/' element={<SignupPage />} />
+        <Route path='/signin' element={<SigninPage />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/entertainment' element={<Entertainment />} />
+        <Route path='/general' element={<General />} />
+        <Route path='/health' element={<Health />} />
+        <Route path='/science' element={<Science />} />
+        <Route path='/sports' element={<Sports />} />
+        <Route path='/technology' element={<Technology />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
     </>
   );
 }
 
-export default App;
+export default function Wrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
