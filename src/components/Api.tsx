@@ -50,7 +50,7 @@ const Api: React.FC<ApiProps> = ({ category }) => {
                             </div>
                             <h1 className="font-bold mb-2">Headlines: {item.title || "Unknown"}</h1>
                             <h2 className="text-black">Author: {item.author || "Unknown"}</h2>
-                            <Link className="text-black font-bold" to={item.url }>Read Full News .....</Link>
+                            <Link className="font-bold text-red-500" to={item.url }>Read More.....</Link>
                         </div>
                     ))
                 )}

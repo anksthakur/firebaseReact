@@ -15,7 +15,7 @@ export default function GithubButton(){
             const token = await user.getIdToken()
             console.log("git token :",token)
             localStorage.setItem("githubToken",token)
-            navigate('/news')
+            navigate('/')
         } catch (error) {
             console.log(error)
         }

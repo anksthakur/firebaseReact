@@ -3,16 +3,16 @@ import Logout from "./Logout";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-700 p-4">
+    <nav className="bg-blue-800 p-4">
       <div className="flex items-center justify-between">
         <div>
-          <Link to="/news" className="text-white text-lg font-bold">
+          <Link to="/news" className="text-white text-lg font-extrabold">
             NewsApp
           </Link>
         </div>
 
         <div>
-        <ul className="flex flex-col md:flex-row md:mt-0 mt-2 items-center gap-10">
+        <ul className="flex flex-col md:flex-row md:mt-0 mt-2 items-center gap-10 font-bold">
           {["entertainment", "general", "health", "science", "sports", "technology"].map((category) => (
             <li key={category} className="md:ml-4">
               <Link to={`/${category}`} className="text-white hover:underline">
