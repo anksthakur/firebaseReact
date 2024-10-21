@@ -9,7 +9,6 @@ export default function Signin() {
     const [password, setPassword] = useState<any>('');
     const router = useNavigate();
 
-const data = localStorage.getItem("data")
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const formData:any = localStorage.getItem("data")

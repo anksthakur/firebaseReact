@@ -15,7 +15,7 @@ import { useAuth } from './context/AuthContext';
 
 
 function App() {
-const {token} = useAuth();
+const {token,email} = useAuth();
   const location = useLocation();
 
   return (
@@ -24,7 +24,7 @@ const {token} = useAuth();
       <Routes>
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/signin' element={<SigninPage />} />
-        <Route path='/' element={<ProtectedRoute element={<Home />} isAuthenticated={!!token} />} />
+        <Route path='/' element={<ProtectedRoute element={<Home />} isAuthenticated={!!token || !! email} />} />
         <Route path='/entertainment' element={<Entertainment />} />
         <Route path='/general' element={<General />} />
         <Route path='/health' element={<Health />} />

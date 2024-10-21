@@ -6,7 +6,7 @@ export default function Logout(){
     const router = useNavigate();
     function logOut (){
         signOut(auth);  
-        localStorage.removeItem("token");
+        localStorage.removeItem("firebaseToken");
         localStorage.removeItem('email')
         router('/signin');
     }
