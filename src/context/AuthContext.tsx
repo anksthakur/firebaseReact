@@ -13,6 +13,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
       setToken(localStorage.getItem('firebaseToken'));  
+      setToken(localStorage.getItem("email"));
   }, []);
 
   return (

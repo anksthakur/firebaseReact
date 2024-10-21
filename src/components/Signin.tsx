@@ -9,12 +9,13 @@ export default function Signin() {
     const [password, setPassword] = useState<any>('');
     const router = useNavigate();
 
-    const adminEmail = "anup.kumar@contriverz.com";
-    const adminPassword = "Admin@123";
-
+const data = localStorage.getItem("data")
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        if (email === adminEmail && password === adminPassword) {
+        const formData:any = localStorage.getItem("data")
+        const dataForm = JSON.parse(formData)
+        if (email === dataForm?.email && password === dataForm?.password) {
+            localStorage.setItem("email",email)
             router('/');
         } else {
             alert("check your credential");

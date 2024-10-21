@@ -6,7 +6,8 @@ export default function Logout(){
     const router = useNavigate();
     function logOut (){
         signOut(auth);  
-        localStorage.clear();
+        localStorage.removeItem("token");
+        localStorage.removeItem('email')
         router('/signin');
     }
     return <div>

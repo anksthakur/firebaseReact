@@ -5,13 +5,13 @@ import { useState } from "react";
 export default function Signup() {
     const [formData, setFormdata] = useState<any>({ name: '', email: '', password: '', confirmPassword: '' });
     const [error, setError] = useState<any>({});
-
     const router = useNavigate();
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormdata({ ...formData, [name]: value });
     }
+
     const validate: any = () => {
         const newError:any = {};
         const { name, email, password, confirmPassword } = formData;
@@ -21,28 +21,28 @@ export default function Signup() {
         if (!email) {
             newError.email = "Email is required";
         } else if (!/\S+@\S+\.\S+/.test(email)) {
-            newError.email = "email is invalid"
+            newError.email = "email is invalid";
         }
         if (!password) {
             newError.password = 'Password is required';
         } else if (password.length < 6) {
-            newError.password = "password must be at least 6 characters"
+            newError.password = "password must be at least 6 characters";
         }
         if (password !== confirmPassword) {
-            newError.confirmPassword = "password do not matched"
+            newError.confirmPassword = "password do not matched";
         }
         setError(newError);
-        return Object.keys(newError).length === 0
+        return Object.keys(newError).length === 0;
     }
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (validate()) {
-            console.log("form data :", formData)
+            localStorage.setItem("data",JSON.stringify(formData));
             router('/signin');
-        }
-        
+        }    
     }
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-sm">
