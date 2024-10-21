@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import SignupPage from './page/signup';
 import SigninPage from './page/signin';
 import ErrorPage from './ErrorPage';
@@ -26,7 +26,7 @@ function App() {
     <>
       {location.pathname !== '/' && location.pathname !== '/signin' && <Navbar />}
       <Routes>
-        <Route path='/' element={<SignupPage />} />
+        <Route path='/' element={!token ? <SignupPage /> :<Navigate to="/news" />} />
         <Route path='/signin' element={<SigninPage />} />
         <Route path='/news' element={<News />} />
         <Route path='/entertainment' element={<Entertainment />} />
